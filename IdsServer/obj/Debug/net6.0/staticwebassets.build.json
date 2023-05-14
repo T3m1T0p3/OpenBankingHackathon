@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "Wl+rmWPCnINheTHPq6lW/Akbq56aBvwIlq8IF79om8E=",
+  "Source": "IdsServer",
+  "BasePath": "_content/IdsServer",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
