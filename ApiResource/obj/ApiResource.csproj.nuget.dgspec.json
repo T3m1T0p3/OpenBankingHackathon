@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Temitope\\source\\repos\\ApiResource\\ApiResource.csproj": {}
+    "C:\\Users\\Temitope\\source\\repos\\IntegratedApiIdsSolution\\ApiResource\\ApiResource.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Temitope\\source\\repos\\ApiResource\\ApiResource.csproj": {
+    "C:\\Users\\Temitope\\source\\repos\\IntegratedApiIdsSolution\\ApiResource\\ApiResource.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Temitope\\source\\repos\\ApiResource\\ApiResource.csproj",
+        "projectUniqueName": "C:\\Users\\Temitope\\source\\repos\\IntegratedApiIdsSolution\\ApiResource\\ApiResource.csproj",
         "projectName": "ApiResource",
-        "projectPath": "C:\\Users\\Temitope\\source\\repos\\ApiResource\\ApiResource.csproj",
+        "projectPath": "C:\\Users\\Temitope\\source\\repos\\IntegratedApiIdsSolution\\ApiResource\\ApiResource.csproj",
         "packagesPath": "C:\\Users\\Temitope\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Temitope\\source\\repos\\ApiResource\\obj\\",
+        "outputPath": "C:\\Users\\Temitope\\source\\repos\\IntegratedApiIdsSolution\\ApiResource\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Temitope\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,22 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"

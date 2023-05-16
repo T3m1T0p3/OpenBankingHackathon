@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nVJa0LyFs/r4Z9VsOLn+/r4dfiUNQTBEtEtjkZ6Obmlvf7wP8LJQGUiTCdZsL+SkafZo6TDGj8AzdDzj4SeGSg==",
+  "dgSpecHash": "bsGf0lqjLaaNRkrFDZFpWAcwwolhb5I5Moa8lWioQBklZELCWPH3b9BsbLe8ss10Pzvw18qTIE028h9zC6MX5g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Temitope\\source\\repos\\IdsServer\\IdsServer.csproj",
+  "projectFilePath": "C:\\Users\\Temitope\\source\\repos\\IntegratedApiIdsSolution\\IdsServer\\IdsServer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Temitope\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\Temitope\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",

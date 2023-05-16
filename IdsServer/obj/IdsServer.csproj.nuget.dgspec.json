@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Temitope\\source\\repos\\IdsServer\\IdsServer.csproj": {}
+    "C:\\Users\\Temitope\\source\\repos\\IntegratedApiIdsSolution\\IdsServer\\IdsServer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Temitope\\source\\repos\\IdsServer\\IdsServer.csproj": {
+    "C:\\Users\\Temitope\\source\\repos\\IntegratedApiIdsSolution\\IdsServer\\IdsServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Temitope\\source\\repos\\IdsServer\\IdsServer.csproj",
+        "projectUniqueName": "C:\\Users\\Temitope\\source\\repos\\IntegratedApiIdsSolution\\IdsServer\\IdsServer.csproj",
         "projectName": "IdsServer",
-        "projectPath": "C:\\Users\\Temitope\\source\\repos\\IdsServer\\IdsServer.csproj",
+        "projectPath": "C:\\Users\\Temitope\\source\\repos\\IntegratedApiIdsSolution\\IdsServer\\IdsServer.csproj",
         "packagesPath": "C:\\Users\\Temitope\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Temitope\\source\\repos\\IdsServer\\obj\\",
+        "outputPath": "C:\\Users\\Temitope\\source\\repos\\IntegratedApiIdsSolution\\IdsServer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Temitope\\AppData\\Roaming\\NuGet\\NuGet.Config",

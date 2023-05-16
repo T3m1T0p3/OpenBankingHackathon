@@ -44,7 +44,7 @@ namespace OpenBankingCore.Controller
                 }
                 else
                 {
-                    createClient.Errors.ToList().ForEach(x => Console.WriteLine(x));
+                    createClient.Errors.ToList().ForEach(x => Console.WriteLine(x.Description));
                 }
                 return Ok(await req.Content.ReadAsStringAsync());
             }
@@ -63,10 +63,21 @@ namespace OpenBankingCore.Controller
             throw new Exception("Not Implemented");
         }
 
+        [HttpPost]
+        public Task<IActionResult> EncryptApiKey()
+        {
+            throw new Exception("Not Implemented");
+        }
+        public Task<IActionResult> EDecryptApiKey()
+        {
+            throw new Exception("Not Implemented");
+        }
+
         [HttpPost("cwscore")]
         public Task<IActionResult> GetCreditScore()
         {
             throw new Exception("Not implemented");
         }
+
     }
 }
