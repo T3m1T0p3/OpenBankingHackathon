@@ -11,7 +11,7 @@ namespace ClientManager
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
+            string myPolicy=String.Empty;
             // Add services to the container.
             builder.Services.AddDbContext<ApplicationDbContext>(opt =>
             {
@@ -21,6 +21,8 @@ namespace ClientManager
             builder.Services.AddIdentity<OpenBankingClient, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddScoped<IRepositoryService<OpenBankingClient>, RepositoryService<OpenBankingClient>>();
             builder.Services.AddScoped<ApplicationDbContext>();
+            builder.Services.AddCors(policy=>policy.AddDefaultPolicy(def=>def.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin()));
+            builder.Services.AddCors(policy=>policy.AddPolicy(myPolicy, def => def.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin()));
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
@@ -31,10 +33,11 @@ namespace ClientManager
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
-                app.UseSwagger();
-                app.UseSwaggerUI();
+                //app.UseSwagger();
+                //app.UseSwaggerUI();
             }
 
+            app.UseCors(myPolicy);
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
