@@ -8,7 +8,7 @@
         public string Email { get; set; }
         //public Guid RegistrationNumber { get; set; }
 
-        public bool IsLicensed { get; set; } = true;
+        //public bool IsLicensed { get; set; } = true;
         public string Password { get; set; }
 
     }

@@ -1,5 +1,6 @@
 ﻿using ClientManager.Dto;
 using ClientProject.Model;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -20,11 +21,11 @@ namespace OpenBankingCore.Controller
             _repositoryService = repositoryService;
             _userManager = userManager;
         }
+        [EnableCors("Access-Control-Allow-Origin")]
         [HttpPost("register")]
         public async Task<IActionResult> RegisterClient(ClientDto clientDto)
         {
-            //register client with Ids
-            //if reg seccessful return apikey
+            Console.WriteLine("Hit");
             HttpClient httpClient = new HttpClient();
             IdsClientDto idsClientDto=new IdsClientDto { ClientId=clientDto.ClientName,ClientName=clientDto.ClientName };
             StringContent httpContent = new StringContent(JsonConvert.SerializeObject(idsClientDto),Encoding.UTF8,"application/json");
@@ -63,11 +64,12 @@ namespace OpenBankingCore.Controller
             throw new Exception("Not Implemented");
         }
 
-        [HttpPost]
+        [HttpPost("encryptkey")]
         public Task<IActionResult> EncryptApiKey()
         {
             throw new Exception("Not Implemented");
         }
+        [HttpPost("decryptkey")]
         public Task<IActionResult> EDecryptApiKey()
         {
             throw new Exception("Not Implemented");

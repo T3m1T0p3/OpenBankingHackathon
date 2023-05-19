@@ -1,25 +1,32 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ApiResource.Model;
 
 namespace ApiResource.Model
 {
     public class Credit
     {
-        public string AccountNumber { get; set; }
-        public string Amount { get; set; }
-        public DateTime Created { get; set; } = DateTime.Now;
-        public string Description { get; set; }
-        public string TransactionId { get; set; }
-        [Key]
-        public string CreditId { get; set; }
-
-        public Credit (string accountNumber, string amount, string description, string transactionId)
+        public Credit(string bankCustomerId, string creditedAccountNumber, string debitedAccountNumber, double balanceBeforeCredit, double amount,DateTime created)
         {
-            AccountNumber = accountNumber;
+            CreditId = Guid.NewGuid().ToString();
+            BankCustomerId = bankCustomerId;
+            CreditedAccountNumber = creditedAccountNumber;
+            DebitedAccountNumber = debitedAccountNumber;
+            BalanceBeforeCredit = balanceBeforeCredit;
             Amount = amount;
-            //Created = created;
-            Description = description;
-            TransactionId = transactionId;
-            //CreditId = creditId;
+            Created = created;
+        }
+        public string BankCustomerId { get; set; }
+        public string CreditId { get; set; } = Guid.NewGuid().ToString();
+        public string CreditedAccountNumber { get; set; } //Benefiary
+        public string DebitedAccountNumber { get; set; } //Creditor
+        public double Amount { get; set; }
+        public DateTime Created { get; set; }
+        public string Description { get; set; } = String.Empty;
+        public double BalanceBeforeCredit { get; set; }
+        public AccountBalance Balance { get; set; }
+        public AccountBalance CreditAccount()
+        {
+            Balance = new(BankCustomerId, BalanceBeforeCredit + Amount,Created);//, CreditId,null);
+                return Balance;
         }
     }
 }
