@@ -1,5 +1,6 @@
 ﻿using ApiResource.Dto;
 using ApiResource.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiResource.Controllers
@@ -13,7 +14,7 @@ namespace ApiResource.Controllers
         {
         _context = context;
         }
-
+        //[Authorize]
         [HttpPost("score")]
         public IActionResult GetCreditScore([FromBody] CreditScoreReqDto reqData)
         {

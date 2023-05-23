@@ -23,7 +23,7 @@ namespace IdsServer
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddSwaggerGen(config =>
             {
-                config.SwaggerDoc("v1", new OpenApiInfo { Title = "DemoApi", Version = "v1" });
+                config.SwaggerDoc("v1", new OpenApiInfo { Title = "IdentityServer", Version = "v1" });
             });
             builder.Services.AddMvc();
             //builder.Services.AddControllers().AddNewtonsoftJson();
@@ -36,7 +36,8 @@ namespace IdsServer
                 opt.Events.RaiseFailureEvents = true;
                 opt.Events.RaiseErrorEvents = true;
                 opt.Events.RaiseInformationEvents = true;
-                opt.AccessTokenJwtType = "";
+                
+                opt.AccessTokenJwtType = "jwt";
             }).AddConfigurationStore(opt =>
             {
                 opt.ConfigureDbContext = op => op.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=EndPointsSecurityServer;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False",
@@ -80,26 +81,28 @@ namespace IdsServer
                 context.SaveChanges();
                 return Results.Ok(apiKey);
             });
-            app.MapGet("/api/get/token", async ([FromQuery]string clientId) =>
+            app.MapPost("/api/get/token", async ([FromBody]TokenRequestDto reqDto) =>
             {
                 var httpClient = new HttpClient();
                 var scope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateAsyncScope();
                 var context = scope.ServiceProvider.GetService<ConfigurationDbContext>();
-                var dbQuery = context.Clients.Where(x=>x.ClientId==clientId).ToList();
+                var dbQuery = context.Clients.Where(x=>x.ClientId==reqDto.ClientId).ToList();
                 Entity.Client client = dbQuery.FirstOrDefault();
                 Client modelClient = client.ToModel();
                 Console.WriteLine("Debug 1");
                 var req = await httpClient.GetDiscoveryDocumentAsync("http://localhost:5036/");
-                Console.WriteLine("Debug 2");
+                Thread.Sleep(5000);
+                //Console.WriteLine("Debug 2");
+                Console.WriteLine($"Token endpoint:{req.TokenEndpoint} ClientId:{modelClient.ClientId} ClientSecret:{reqDto.ClientSecret}");
                 var token = httpClient.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest
                 {
                     Address=req.TokenEndpoint,
                     ClientId = modelClient.ClientId,
-                    ClientSecret = "SuperSecretSecret",
+                    ClientSecret = reqDto.ClientSecret,
                     Scope ="read"
                 });
                 Console.WriteLine(token.ToString());
-                return token;
+                return token.Result.AccessToken;
             });
 
             app.MapPost("/api/create/resource", ([FromBody]ResourceDto resourceDto) =>
@@ -119,7 +122,20 @@ namespace IdsServer
                     new Secret(x.Sha256())));
                 context.ApiResources.Add(resource.ToEntity());
                 context.SaveChanges();
-            });
+
+            /*{
+                "resourceName": "OpenBankingCore",
+                "scopes": [
+                "read","write"
+  ],
+                "secrets": [
+           "OpenBankingCoreSuperSecret"
+                ],
+                "userClaims": [
+                "email","username"
+                ]
+                }*/
+    });
 
             app.MapPost("/api/create/scope", ([FromBody] ScopeDto scopeDto) =>
             {
@@ -130,7 +146,24 @@ namespace IdsServer
             });
             app.MapPost("/api/create/identity", () =>
             {
-                throw new NotImplementedException();
+                var ids= new List<IdentityResource> {
+                new IdentityResources.Profile(),
+                new IdentityResources.OpenId(),
+                new IdentityResource
+                {
+                    Name="creditor",
+                    UserClaims=new[] {"email","clientId"}
+                },
+                new IdentityResource
+                {
+                    Name="user",
+                    UserClaims=new[] {"user"}
+                }
+            };
+                var instanceScope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope();
+                var instanceContext = instanceScope.ServiceProvider.GetService<ConfigurationDbContext>();
+                ids.ForEach(id => instanceContext.IdentityResources.Add(id.ToEntity()));
+                instanceContext.SaveChanges();
             });
             //app.UseHttpsRedirection();
             app.UseRouting();

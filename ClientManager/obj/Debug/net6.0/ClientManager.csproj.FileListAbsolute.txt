@@ -8,6 +8,7 @@ C:\Users\Temitope\source\repos\IntegratedApiIdsSolution\ClientManager\bin\Debug\
 C:\Users\Temitope\source\repos\IntegratedApiIdsSolution\ClientManager\bin\Debug\net6.0\Azure.Core.dll
 C:\Users\Temitope\source\repos\IntegratedApiIdsSolution\ClientManager\bin\Debug\net6.0\Azure.Identity.dll
 C:\Users\Temitope\source\repos\IntegratedApiIdsSolution\ClientManager\bin\Debug\net6.0\Humanizer.dll
+C:\Users\Temitope\source\repos\IntegratedApiIdsSolution\ClientManager\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Temitope\source\repos\IntegratedApiIdsSolution\ClientManager\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Users\Temitope\source\repos\IntegratedApiIdsSolution\ClientManager\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\Temitope\source\repos\IntegratedApiIdsSolution\ClientManager\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll

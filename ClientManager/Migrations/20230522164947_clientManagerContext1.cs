@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ClientManager.Migrations
 {
     /// <inheritdoc />
-    public partial class initialClientManagerMigration : Migration
+    public partial class clientManagerContext1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -31,11 +31,13 @@ namespace ClientManager.Migrations
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Discriminator = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ClientId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    OpenBankingClientId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    ClientId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ClientName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     RegistrationNumber = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     IsLicensed = table.Column<bool>(type: "bit", nullable: true),
-                    EncryptedApiKey = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EncryptedApiKey = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
+                    IV = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),

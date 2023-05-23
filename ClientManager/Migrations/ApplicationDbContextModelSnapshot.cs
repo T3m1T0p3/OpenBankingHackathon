@@ -232,19 +232,27 @@ namespace ClientManager.Migrations
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
-                    b.Property<Guid>("ClientId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("ClientId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ClientName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("EncryptedApiKey")
+                    b.Property<byte[]>("EncryptedApiKey")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<byte[]>("IV")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<bool>("IsLicensed")
                         .HasColumnType("bit");
+
+                    b.Property<Guid>("OpenBankingClientId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("RegistrationNumber")
                         .HasColumnType("uniqueidentifier");

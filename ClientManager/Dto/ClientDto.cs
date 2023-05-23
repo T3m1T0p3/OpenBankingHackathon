@@ -3,7 +3,7 @@
     public class ClientDto
     {
         public string ClientName { get; set; }
-        // public string ClientPassword { get; set; }
+        public string ClientId { get; set; }
         public DateTime CreatedAt { get; } = DateTime.UtcNow;
         public string Email { get; set; }
         //public Guid RegistrationNumber { get; set; }

@@ -12,8 +12,8 @@ using OpenBankingCore;
 namespace ClientManager.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230514093556_initialClientManagerMigration")]
-    partial class initialClientManagerMigration
+    [Migration("20230522164947_clientManagerContext1")]
+    partial class clientManagerContext1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -235,19 +235,27 @@ namespace ClientManager.Migrations
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
-                    b.Property<Guid>("ClientId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("ClientId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ClientName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("EncryptedApiKey")
+                    b.Property<byte[]>("EncryptedApiKey")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<byte[]>("IV")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<bool>("IsLicensed")
                         .HasColumnType("bit");
+
+                    b.Property<Guid>("OpenBankingClientId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("RegistrationNumber")
                         .HasColumnType("uniqueidentifier");

@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "RphYStOj2hpqqn1lOVnpUZWjzvFXEjFoyNpCKPH44BxP/I8oNnrzL26agJSlkmIIcEO/4rQlqHv73e71D/xKMA==",
+  "dgSpecHash": "GZuD4gM1E7FkkVaYrCemeDcIqU43VPHhCE26wmLqFRTiUtMzw3vBJX4WWEJsCB30HpBp/BVxRui2Uhe+4t2Jng==",
   "success": true,
   "projectFilePath": "C:\\Users\\Temitope\\source\\repos\\IntegratedApiIdsSolution\\ApiResource\\ApiResource.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Temitope\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Temitope\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\Temitope\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\Temitope\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.16\\microsoft.aspnetcore.authentication.jwtbearer.6.0.16.nupkg.sha512",
     "C:\\Users\\Temitope\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Temitope\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Temitope\\.nuget\\packages\\microsoft.data.sqlclient\\5.0.1\\microsoft.data.sqlclient.5.0.1.nupkg.sha512",

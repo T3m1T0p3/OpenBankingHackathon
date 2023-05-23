@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IdsServer.Migrations
 {
     [DbContext(typeof(ConfigurationDbContext))]
-    [Migration("20230502175458_ConfigDbContext")]
-    partial class ConfigDbContext
+    [Migration("20230522165057_initialConfigContext")]
+    partial class initialConfigContext
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

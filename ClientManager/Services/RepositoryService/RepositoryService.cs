@@ -1,4 +1,7 @@
-﻿namespace OpenBankingCore.RepositoryService
+﻿using ClientProject.Model;
+using OpenBankingCore;
+
+namespace ClientManager.Services.RepositoryService
 {
     public class RepositoryService<T> : IRepositoryService<T> where T : class
     {
@@ -21,7 +24,11 @@
 
         public void Update()
         {
-            throw new Exception("Not Implemented");
+            _context.SaveChanges();
+        }
+        public OpenBankingClient Get(string email)
+        {
+            return _context.OpenBankingClients.Where(client => client.Email == email).FirstOrDefault();
         }
     }
 }

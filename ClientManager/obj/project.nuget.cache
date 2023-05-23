@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "hzzBRx6UW1SX2Gm7vmH5QNH8h/Vc1QGjsOIG6ylDKTzRSy9mH4ThDgZM/8OT66jdcXFNJaKxuKpfdel275S+lQ==",
+  "dgSpecHash": "ZYr2I8N4KEeAaaDd+zE3HXEOnw2OLv6qXGj/216QX87XKdoMm+lkO4rQgFrG+8DzUv54EE6BNHr2PqJiKChXMg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Temitope\\source\\repos\\IntegratedApiIdsSolution\\ClientManager\\ClientManager.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Temitope\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Temitope\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\Temitope\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\Temitope\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.16\\microsoft.aspnetcore.authentication.jwtbearer.6.0.16.nupkg.sha512",
     "C:\\Users\\Temitope\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.16\\microsoft.aspnetcore.cryptography.internal.6.0.16.nupkg.sha512",
     "C:\\Users\\Temitope\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.16\\microsoft.aspnetcore.cryptography.keyderivation.6.0.16.nupkg.sha512",
     "C:\\Users\\Temitope\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\6.0.16\\microsoft.aspnetcore.identity.entityframeworkcore.6.0.16.nupkg.sha512",

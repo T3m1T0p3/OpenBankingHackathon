@@ -1,6 +1,9 @@
 using ApiResource.Model;
 using ApiResource.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 namespace ApiResource
 {
@@ -22,6 +25,28 @@ namespace ApiResource
             });
             builder.Services.AddSwaggerGen();
             builder.Services.AddScoped<Seeder>();
+            builder.Services.AddAuthentication(opt =>
+            {
+                opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(opt =>
+            {
+                opt.Authority = "http://localhost:5036";
+                opt.Audience = "OpenBankingCore";
+                opt.TokenValidationParameters.ValidTypes = new[] { "at+jwt" };
+                opt.RequireHttpsMetadata = false;
+                opt.SaveToken = true;
+                opt.IncludeErrorDetails = true;
+            });
+            builder.Services.AddAuthorization(opt =>
+            {
+                var defaultAuthorizationPolicyBuilder = new AuthorizationPolicyBuilder(
+                     JwtBearerDefaults.AuthenticationScheme);
+
+                defaultAuthorizationPolicyBuilder =
+                defaultAuthorizationPolicyBuilder.RequireAuthenticatedUser();
+
+                opt.DefaultPolicy = defaultAuthorizationPolicyBuilder.Build();
+            });
 
             var app = builder.Build();
             var scope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope();
@@ -41,13 +66,17 @@ namespace ApiResource
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
-            app.UseHttpsRedirection();
-
+            app.UseRouting();
+            //app.UseHttpsRedirection();
+            //app.UseIdentityServer();
+            app.UseAuthentication();
             app.UseAuthorization();
 
 
-            app.MapControllers();
+            app.UseEndpoints(point =>
+            {
+                point.MapControllers();
+            });
 
             app.Run();
         }

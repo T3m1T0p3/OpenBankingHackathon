@@ -85,3 +85,4 @@ C:\Users\Temitope\source\repos\IntegratedApiIdsSolution\ApiResource\obj\Debug\ne
 C:\Users\Temitope\source\repos\IntegratedApiIdsSolution\ApiResource\obj\Debug\net6.0\ApiResource.pdb
 C:\Users\Temitope\source\repos\IntegratedApiIdsSolution\ApiResource\obj\Debug\net6.0\ApiResource.genruntimeconfig.cache
 C:\Users\Temitope\source\repos\IntegratedApiIdsSolution\ApiResource\obj\Debug\net6.0\ref\ApiResource.dll
+C:\Users\Temitope\source\repos\IntegratedApiIdsSolution\ApiResource\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

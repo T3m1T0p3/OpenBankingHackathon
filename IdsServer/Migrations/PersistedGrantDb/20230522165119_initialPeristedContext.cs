@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace IdsServer.Migrations.PersistedGrantDb
 {
     /// <inheritdoc />
-    public partial class ConfigDbContext : Migration
+    public partial class initialPeristedContext : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
